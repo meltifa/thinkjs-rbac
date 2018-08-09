@@ -2,7 +2,7 @@
   "apps": [{
     "name": "rbac",
     "script": "production.js",
-    "cwd": "/Users/hanlei/Documents/thinkjs/rbac",
+    "cwd": "/Users/hanlei/Documents/GitHub/thinkjs-rbac",
     "exec_mode": "fork",
     "max_memory_restart": "1G",
     "autorestart": true,
