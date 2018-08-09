@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 8.0.11)
 # Database: auth
-# Generation Time: 2018-08-09 09:21:59 +0000
+# Generation Time: 2018-08-09 10:20:37 +0000
 # ************************************************************
 
 
@@ -46,6 +46,85 @@ VALUES
 	(5,'/article/delete','删除文章信息');
 
 /*!40000 ALTER TABLE `auth_priv` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table auth_role
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `auth_role`;
+
+CREATE TABLE `auth_role` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `role` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '角色',
+  `desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '描述信息',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `auth_role` WRITE;
+/*!40000 ALTER TABLE `auth_role` DISABLE KEYS */;
+
+INSERT INTO `auth_role` (`id`, `role`, `desc`)
+VALUES
+	(1,'admin','管理员'),
+	(2,'editor','编辑'),
+	(3,'user','用户'),
+	(4,'test_user','测试用户');
+
+/*!40000 ALTER TABLE `auth_role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table auth_role_priv
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `auth_role_priv`;
+
+CREATE TABLE `auth_role_priv` (
+  `role_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '角色id',
+  `priv_id` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '权限id',
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `auth_role_priv` WRITE;
+/*!40000 ALTER TABLE `auth_role_priv` DISABLE KEYS */;
+
+INSERT INTO `auth_role_priv` (`role_id`, `priv_id`)
+VALUES
+	(1,'1,2,3,4,5'),
+	(2,'1,3,4'),
+	(3,'1'),
+	(4,'1,2');
+
+/*!40000 ALTER TABLE `auth_role_priv` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table auth_user
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `auth_user`;
+
+CREATE TABLE `auth_user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '用户名',
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `role_id` int(11) NOT NULL COMMENT '角色id',
+  `bz` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user` (`user`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `auth_user` WRITE;
+/*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
+
+INSERT INTO `auth_user` (`id`, `user`, `password`, `role_id`, `bz`)
+VALUES
+	(1,'lilei','123',1,'管理员组'),
+	(2,'hanmeimei','123',2,'编辑组'),
+	(3,'lucy','123',4,'测试用户组');
+
+/*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
 

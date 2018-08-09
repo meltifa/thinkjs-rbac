@@ -16,7 +16,7 @@
     "type": "file",
     "file": {
       "timeout": 86400000,
-      "cachePath": "/Users/hanlei/Documents/thinkjs/rbac/runtime/cache",
+      "cachePath": "/Users/hanlei/Documents/GitHub/thinkjs-rbac/runtime/cache",
       "pathDepth": 1,
       "gcInterval": 86400000
     }
@@ -42,13 +42,13 @@
       "cookie": {
         "name": "thinkjs"
       },
-      "sessionPath": "/Users/hanlei/Documents/thinkjs/rbac/runtime/session"
+      "sessionPath": "/Users/hanlei/Documents/GitHub/thinkjs-rbac/runtime/session"
     }
   },
   "view": {
     "type": "nunjucks",
     "nunjucks": {
-      "viewPath": "/Users/hanlei/Documents/thinkjs/rbac/view",
+      "viewPath": "/Users/hanlei/Documents/GitHub/thinkjs-rbac/view",
       "sep": "_",
       "extname": ".html"
     }
@@ -60,14 +60,14 @@
       "backups": 10,
       "absolute": true,
       "maxLogSize": 51200,
-      "filename": "/Users/hanlei/Documents/thinkjs/rbac/logs/app.log"
+      "filename": "/Users/hanlei/Documents/GitHub/thinkjs-rbac/logs/app.log"
     },
     "dateFile": {
       "level": "ALL",
       "absolute": true,
       "pattern": "-yyyy-MM-dd",
       "alwaysIncludePattern": true,
-      "filename": "/Users/hanlei/Documents/thinkjs/rbac/logs/app.log"
+      "filename": "/Users/hanlei/Documents/GitHub/thinkjs-rbac/logs/app.log"
     }
   }
 }
