@@ -8,7 +8,7 @@ module.exports = class extends Base {
     const param = this.post();
     const userData = await this.model('user').where(param).find();
     if (think.isEmpty(userData)) {
-      return this.fail('用户名或密码错！');
+      return this.fail(401, '用户名或密码错！');
     }
     const sessionData = {
       user: userData.user,
