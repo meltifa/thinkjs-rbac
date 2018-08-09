@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>New ThinkJS Application</title>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <h1>权限验证系统</h1>
+      <p>{{userInfo | dump}}</p>
+    </div>
+  </header>
+  <div class="content">
+    <form action="index/login" method="post">
+      <div>
+        <label>username
+          <input type="text" name="user" value="lilei" required>
+        </label>
+      </div>
+      <div>
+        <label>password
+          <input type="password" name="password" value="123" required>
+        </label>
+      </div>
+      <div>
+        <button type="submit">提交</button>
+        <a href="/index/logout">注销</a>
+      </div>
+    </form>
+    <ul>
+      <li><a href="/article/list">读取文章列表</a></li>
+      <li><a href="/article/edit">编辑文章信息</a></li>
+      <li><a href="/article/create">创建文章内容</a></li>
+      <li><a href="/article/update">更新文章信息</a></li>
+      <li><a href="/article/delete">删除文章信息</a></li>
+    </ul>
+  </div>
+</body>
+
+</html>
